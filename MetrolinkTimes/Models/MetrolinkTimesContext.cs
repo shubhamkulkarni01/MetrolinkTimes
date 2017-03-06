@@ -19,7 +19,11 @@ namespace MetrolinkTimes.Models
         public MetrolinkTimesContext() : base("name=MetrolinkTimesContext")
         {
         }
-
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            Database.SetInitializer<MetrolinkTimesContext>(new CreateDatabaseIfNotExists<MetrolinkTimesContext>());
+            base.OnModelCreating(modelBuilder);
+        }
         public DbSet<StationTrain> StationTrains { get; set; }
         public DbSet<Station> Stations { get; set; }
         public DbSet<Train> Trains { get; set; }
