@@ -30,7 +30,14 @@ namespace MetrolinkTimes.Controllers
         {
             //return db.StationTrains.Include(s => s.station).Include(s=> s.train);
             //
-            map.Add("ALL",toCompleteData(db));
+            try
+            {
+                map.Add("ALL", toCompleteData(db));
+            }
+            catch (Exception)
+            {
+
+            }
             //
             return map["ALL"].AsQueryable();
 
@@ -42,7 +49,14 @@ namespace MetrolinkTimes.Controllers
         {
             //return db.StationTrains.Include(s => s.station).Include(s=> s.train);
             //
-            map.Add("one",toCompleteData(db, id));
+            try
+            {
+                map.Add("one", toCompleteData(db, id));
+            }
+            catch(Exception)
+            {
+
+            }
             //
             return map["one"].AsQueryable();
 
