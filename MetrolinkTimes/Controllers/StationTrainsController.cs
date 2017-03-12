@@ -33,6 +33,7 @@ namespace MetrolinkTimes.Controllers
             //
             if (counter == 0) list = toCompleteData(db);
             //
+            counter++;
             return list.AsQueryable();
 
             //thisworks     return toCompleteData(db).AsQueryable();
@@ -45,6 +46,7 @@ namespace MetrolinkTimes.Controllers
             //
             if (counter == 0) list = toCompleteData(db, id);
             //
+            counter++;
             return list.AsQueryable();
 
             //thisworks     return toCompleteData(db, id).AsQueryable();
