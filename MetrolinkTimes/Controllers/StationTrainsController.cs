@@ -19,7 +19,7 @@ namespace MetrolinkTimes.Controllers
     public class StationTrainsController : ApiController
     {
         //
-        private static Dictionary<string,List<CompleteData>> map = null;
+        private static Dictionary<string,List<CompleteData>> map = new Dictionary<string, List<CompleteData>>();
         //
 
         private static long TIME = 9000000000;
