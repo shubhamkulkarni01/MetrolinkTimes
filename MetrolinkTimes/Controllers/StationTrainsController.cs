@@ -33,10 +33,11 @@ namespace MetrolinkTimes.Controllers
             try
             {
                 map.Add("ALL", toCompleteData(db));
+                map.Add("ALL", toCompleteData(db));
             }
             catch (Exception)
             {
-
+                return map["ALL"].AsQueryable();
             }
             //
             return map["ALL"].AsQueryable();
@@ -52,10 +53,11 @@ namespace MetrolinkTimes.Controllers
             try
             {
                 map.Add("one", toCompleteData(db, id));
+                map.Add("one", toCompleteData(db, id));
             }
-            catch(Exception)
+            catch (Exception)
             {
-
+                return map["one"].AsQueryable();
             }
             //
             return map["one"].AsQueryable();
