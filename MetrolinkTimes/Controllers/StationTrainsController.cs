@@ -19,8 +19,7 @@ namespace MetrolinkTimes.Controllers
     public class StationTrainsController : ApiController
     {
         //
-        public static int counter = 0;
-        private static List<CompleteData> list = null;
+        private static Dictionary<string,List<CompleteData>> map = null;
         //
 
         private static long TIME = 9000000000;
@@ -31,10 +30,9 @@ namespace MetrolinkTimes.Controllers
         {
             //return db.StationTrains.Include(s => s.station).Include(s=> s.train);
             //
-            if (counter == 0) list = toCompleteData(db);
+            map.Add("ALL",toCompleteData(db));
             //
-            counter++;
-            return list.AsQueryable();
+            return map["ALL"].AsQueryable();
 
             //thisworks     return toCompleteData(db).AsQueryable();
         }
@@ -44,10 +42,10 @@ namespace MetrolinkTimes.Controllers
         {
             //return db.StationTrains.Include(s => s.station).Include(s=> s.train);
             //
-            if (counter == 0) list = toCompleteData(db, id);
+            map.Add("one",toCompleteData(db, id));
             //
-            counter++;
-            return list.AsQueryable();
+            return map["one"].AsQueryable();
+
 
             //thisworks     return toCompleteData(db, id).AsQueryable();
         }
