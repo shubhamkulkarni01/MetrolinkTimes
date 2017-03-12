@@ -20,7 +20,7 @@ namespace MetrolinkTimes.Controllers
     {
         //
         public static int counter = 0;
-        private List<CompleteData> list = null;
+        private static List<CompleteData> list = null;
         //
 
         private static long TIME = 9000000000;
