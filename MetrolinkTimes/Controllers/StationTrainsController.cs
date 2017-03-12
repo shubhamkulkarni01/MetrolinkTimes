@@ -18,6 +18,11 @@ namespace MetrolinkTimes.Controllers
 {
     public class StationTrainsController : ApiController
     {
+        //
+        public static int counter = 0;
+        private List<CompleteData> list = null;
+        //
+
         private static long TIME = 9000000000;
         private MetrolinkTimesContext db = new MetrolinkTimesContext();
 
@@ -25,14 +30,24 @@ namespace MetrolinkTimes.Controllers
         public IQueryable<CompleteData> GetStationTrains()
         {
             //return db.StationTrains.Include(s => s.station).Include(s=> s.train);
-            return toCompleteData(db).AsQueryable();
+            //
+            if (counter == 0) list = toCompleteData(db);
+            //
+            return list.AsQueryable();
+
+            //thisworks     return toCompleteData(db).AsQueryable();
         }
 
         // GET: api/StationTrains
         public IQueryable<CompleteData> GetStationTrains(int id)
         {
             //return db.StationTrains.Include(s => s.station).Include(s=> s.train);
-            return toCompleteData(db, id).AsQueryable();
+            //
+            if (counter == 0) list = toCompleteData(db, id);
+            //
+            return list.AsQueryable();
+
+            //thisworks     return toCompleteData(db, id).AsQueryable();
         }
 
         /*// GET: api/StationTrains/5
