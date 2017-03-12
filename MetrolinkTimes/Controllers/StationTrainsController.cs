@@ -19,6 +19,7 @@ namespace MetrolinkTimes.Controllers
     public class StationTrainsController : ApiController
     {
         //
+        private static readonly string[] array = { "", "orange_county", "inland_empire", "riverside","san_bernadino","ventura_county","perris_valley"};
         private static Dictionary<string,List<CompleteData>> map = new Dictionary<string, List<CompleteData>>();
         //
 
@@ -30,14 +31,14 @@ namespace MetrolinkTimes.Controllers
         {
             //return db.StationTrains.Include(s => s.station).Include(s=> s.train);
             //
+            if(map.ContainsKey("ALL"))
+                return map["ALL"].AsQueryable();
             try
             {
-                map.Add("ALL", toCompleteData(db));
                 map.Add("ALL", toCompleteData(db));
             }
             catch (Exception)
             {
-                return map["ALL"].AsQueryable();
             }
             //
             return map["ALL"].AsQueryable();
@@ -50,17 +51,17 @@ namespace MetrolinkTimes.Controllers
         {
             //return db.StationTrains.Include(s => s.station).Include(s=> s.train);
             //
+            if(map.ContainsKey(array[id]))
+                return map[array[id]].AsQueryable();
             try
             {
-                map.Add("one", toCompleteData(db, id));
-                map.Add("one", toCompleteData(db, id));
+                map.Add(array[id], toCompleteData(db, id));
             }
             catch (Exception)
             {
-                return map["one"].AsQueryable();
             }
             //
-            return map["one"].AsQueryable();
+            return map[array[id]].AsQueryable();
 
 
             //thisworks     return toCompleteData(db, id).AsQueryable();
