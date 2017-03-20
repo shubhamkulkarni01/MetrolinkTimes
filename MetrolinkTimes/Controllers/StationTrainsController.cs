@@ -19,7 +19,7 @@ namespace MetrolinkTimes.Controllers
     public class StationTrainsController : ApiController
     {
         //
-        private static readonly string[] array = { "", "orange_county", "inland_empire", "riverside","san_bernadino","ventura_county","perris_valley"};
+        private static readonly string[] array = { "", "orange_county", "antelope_valley", "inland_empire", "riverside","san_bernadino","ventura_county","perris_valley"};
         private static Dictionary<string,List<CompleteData>> map = new Dictionary<string, List<CompleteData>>();
         //
 
