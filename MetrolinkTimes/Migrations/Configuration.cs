@@ -46,7 +46,7 @@ namespace MetrolinkTimes.Migrations
                 { 2, Properties.Resources.inland_empire_weekday }, {3,Properties.Resources.inland_empire_weekend },
                 { 4, Properties.Resources.antelope_valley_weekday }, {5, Properties.Resources.antelope_valley_weekend},
                 { 6, Properties.Resources. riverside_weekday},
-                { 8, Properties.Resources.san_bernadino_weekday }, { 7, Properties.Resources.san_bernadino_weekend },
+                { 8, Properties.Resources.san_bernadino_weekday }, { 11, Properties.Resources.san_bernadino_weekend },
                 { 10, Properties.Resources.ventura_county_weekday },
                 { 12, Properties.Resources.perris_valley_weekday }, { 9, Properties.Resources.perris_valley_weekend }
             };
@@ -74,7 +74,7 @@ namespace MetrolinkTimes.Migrations
                         asdf.Key==2||asdf.Key==3?Station.INLAND_EMPIRE:
                         asdf.Key == 4 || asdf.Key == 5 ? Station.ANTELOPE_VALLEY:
                         asdf.Key == 6 ? Station.RIVERSIDE:
-                        asdf.Key == 8 || asdf.Key == 7 ? Station.SAN_BERNADINO:
+                        asdf.Key == 8 || asdf.Key == 11 ? Station.SAN_BERNADINO:
                         asdf.Key == 10 ? Station.VENTURA_COUNTY:Station.PERRIS_VALLEY};
                     Train t1 = new Train() { train_id = (int)z["trip_short_name"] };
                     if (!l1.Contains(s1, new Station())) l1.Add(s1);
