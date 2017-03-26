@@ -16,8 +16,8 @@ namespace MetrolinkTimes.Models
         public int Line { get; set; }
         
         public static int ORANGE_COUNTY = 1;
-        public static int ANTELOPE_VALLEY = 2;
-        public static int INLAND_EMPIRE = 3;
+        public static int ANTELOPE_VALLEY = 3;
+        public static int INLAND_EMPIRE = 2;
         public static int RIVERSIDE = 4;
         public static int SAN_BERNADINO = 5;
         public static int VENTURA_COUNTY = 6;
