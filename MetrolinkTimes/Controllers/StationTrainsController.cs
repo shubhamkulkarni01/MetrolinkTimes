@@ -115,7 +115,7 @@ namespace MetrolinkTimes.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        /*// POST: api/StationTrains
+        // POST: api/StationTrains
         [ResponseType(typeof(StationTrain))]
         public async Task<IHttpActionResult> PostStationTrain(UpdateData updateData)
         {
@@ -131,8 +131,8 @@ namespace MetrolinkTimes.Controllers
             await db.SaveChangesAsync();
 
             return CreatedAtRoute("DefaultApi", new { id = stationTrain.Id }, stationTrain);
-        }*/
-
+        }
+        /*
         // POST: api/StationTrains
         public async Task<string> PostRegistration([FromBody] string fcm_id)
         {
@@ -159,7 +159,7 @@ namespace MetrolinkTimes.Controllers
             await db.SaveChangesAsync(); }
             return s;
         }
-
+        */
         // DELETE: api/StationTrains/5
         [ResponseType(typeof(StationTrain))]
         public async Task<IHttpActionResult> DeleteStationTrain(int id)
