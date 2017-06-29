@@ -228,10 +228,15 @@ namespace MetrolinkTimes.Controllers
             DateTime date = DateTime.Parse(d.time);
             list = list.OrderBy(s => s.time).ToList();
             foreach (StationTrain s in list)
-                if (date.CompareTo(s.time) >= 0&&date.Ticks-s.time.Ticks<=TIME) {
+            {
+                DateTime time = DateTime.Today;
+                time = time.AddHours(s.time.Hour).AddMinutes(s.time.Minute).AddSeconds(s.time.Second);
+                if (date.CompareTo(s.time) >= 0 && date.Ticks - s.time.Ticks <= TIME)
+                {
                     t = s.train;
                     break;
-                }          
+                }
+            }
             return t;
         }
     }
