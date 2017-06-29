@@ -117,16 +117,16 @@ namespace MetrolinkTimes.Controllers
 
         // POST: api/StationTrains
         [ResponseType(typeof(StationTrain))]
-        public async Task<IHttpActionResult> PostStationTrain(UpdateData updateData)
+        public async Task<IHttpActionResult> PostStationTrain([FromBody] UpdateData updateData)
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState);
+                return BadRequest("broke early!!!");
             }
             
             StationTrain stationTrain = new StationTrain { time = DateTime.Parse(updateData.time), station = db.Stations.First(i => i.Name == updateData.name), train = findClosest(updateData, db.StationTrains.Where(s=> s.station.Name == updateData.name).ToList())};
-            if(stationTrain.train.train_id == 0||stationTrain.train == null)
-            { return BadRequest(ModelState); }
+            if (stationTrain.train.train_id == 0 || stationTrain.train == null)
+            { return BadRequest("broke later"); }
             db.StationTrains.Add(stationTrain);
             await db.SaveChangesAsync();
 
