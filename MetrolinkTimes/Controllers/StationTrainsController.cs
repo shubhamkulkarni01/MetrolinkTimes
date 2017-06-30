@@ -132,9 +132,9 @@ namespace MetrolinkTimes.Controllers
 
             return CreatedAtRoute("DefaultApi", new { id = stationTrain.Id }, stationTrain);
         }
-        /*
+        
         // POST: api/StationTrains
-        public async Task<string> PostRegistration([FromBody] string fcm_id)
+        public async Task<string> PostRegistration(string fcm_id)
         {
             RegistrationData rData = new RegistrationData { fcm_id = fcm_id };
             if (System.Diagnostics.Debugger.IsAttached == false)
@@ -159,7 +159,7 @@ namespace MetrolinkTimes.Controllers
             await db.SaveChangesAsync(); }
             return s;
         }
-        */
+        
         // DELETE: api/StationTrains/5
         [ResponseType(typeof(StationTrain))]
         public async Task<IHttpActionResult> DeleteStationTrain(int id)
@@ -231,7 +231,7 @@ namespace MetrolinkTimes.Controllers
             {
                 DateTime time = DateTime.Today;
                 time = time.AddHours(s.time.Hour).AddMinutes(s.time.Minute).AddSeconds(s.time.Second);
-                if (date.CompareTo(s.time) >= 0 && date.Ticks - s.time.Ticks <= TIME)
+                if (date.CompareTo(time) >= 0 && date.Ticks - time.Ticks <= TIME)
                 {
                     t = s.train;
                     break;
