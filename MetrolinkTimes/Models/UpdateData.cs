@@ -9,5 +9,6 @@ namespace MetrolinkTimes.Models
     {
         public string name { get; set; }
         public string time { get; set; }
+        public int line { get; set; }
     }
 }
