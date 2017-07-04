@@ -57,9 +57,8 @@ namespace MetrolinkTimes.Controllers
             {
                 map.Add(array[id], toCompleteData(db, id));
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                Console.WriteLine(e.StackTrace);
             }
             //
             return map[array[id]].AsQueryable();
