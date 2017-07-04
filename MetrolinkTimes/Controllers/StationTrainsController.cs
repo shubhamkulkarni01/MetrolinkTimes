@@ -124,12 +124,12 @@ namespace MetrolinkTimes.Controllers
                 return BadRequest("broke early!!!");
             }
             
-            StationTrain stationTrain = new StationTrain { time = DateTime.Parse(updateData.time), station = db.Stations.First(i => i.Name == updateData.name), train = findClosest(updateData, db.StationTrains.Where(s=> s.station.Name == updateData.name&&s.station.Line==updateData.line).ToList())};
+            StationTrain stationTrain = new StationTrain { time = DateTime.Parse(updateData.time), station = db.Stations.First(i => i.Name == updateData.name&&i.Line==updateData.line), train = findClosest(updateData, db.StationTrains.Where(s=> s.station.Name == updateData.name&&s.station.Line==updateData.line).ToList())};
             if (stationTrain.train.train_id == 0 || stationTrain.train == null)
             { return BadRequest(updateData.name+" "+updateData.time+" "+stationTrain.station.Name+" "+stationTrain.train.train_id); }
-            db.StationTrains.Add(stationTrain);
+            //db.StationTrains.Add(stationTrain);
             await db.SaveChangesAsync();
-
+            map.Remove(array[updateData.line]);
             return CreatedAtRoute("DefaultApi", new { id = stationTrain.Id }, stationTrain);
         }
         
