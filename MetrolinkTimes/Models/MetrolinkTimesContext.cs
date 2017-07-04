@@ -21,7 +21,7 @@ namespace MetrolinkTimes.Models
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            Database.SetInitializer<MetrolinkTimesContext>(new MigrateDatabaseToLatestVersion<MetrolinkTimesContext, Migrations.Configuration>());
+            Database.SetInitializer<MetrolinkTimesContext>(new DropCreateDatabaseAlways<MetrolinkTimesContext>());
             base.OnModelCreating(modelBuilder);
         }
         public DbSet<StationTrain> StationTrains { get; set; }
